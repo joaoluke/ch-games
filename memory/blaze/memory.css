@@ -1,0 +1,89 @@
+/* Definir estilo base */
+body {
+  font-family: "Comic Sans MS", sans-serif;
+  background-color: #87ceeb; /* Azul claro, remete ao céu */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url("../images/blaze/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Título */
+h1 {
+  color: #ff4500; /* Laranja vibrante */
+  text-shadow: 2px 2px 0px #ffff00; /* Sombra amarela */
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+/* Container das cartas */
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas de cartas */
+  grid-gap: 15px; /* Espaço entre as cartas */
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.person {
+  /* width: 100%; */
+  height: 100%;
+}
+
+/* Estilos básicos das cartas */
+.card {
+  width: 150px;
+  height: 200px;
+  /* perspective: 1000px; */
+  display: inline-block;
+  margin: 10px;
+}
+
+/* Estrutura interna da carta com frente e verso */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* Adiciona a rotação quando a carta é clicada */
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Frente e verso da carta */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 1px solid #f1f1f1;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Parte da frente, inicialmente escondida */
+.card-front {
+  transform: rotateY(180deg);
+}
+
+/* Parte de trás (verso) que é mostrada inicialmente */
+.card-back {
+  background-image: url("../images/blaze/logo.png"); /* Exemplo: imagem genérica */
+  background-size: cover;
+}
+
+.card.matched {
+  cursor: default;
+  box-shadow: -1px 1px 31px 16px green;
+}
